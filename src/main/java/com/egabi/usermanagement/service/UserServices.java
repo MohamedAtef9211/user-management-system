@@ -55,4 +55,8 @@ public class UserServices {
     public User getUserById(Integer id) {
         return users.stream().filter(user -> user.getId().equals(id)).findFirst().orElseThrow(() -> new UserNotFoundException("User with id " + id + " not found"));
     }
+
+    public User getUserByEmail(String email) {
+        return users.stream().filter(user -> user.getEmail().equals(email)).findFirst().orElseThrow(() -> new UserNotFoundException("User with email " + email + " not found"));
+    }
 }

@@ -1,7 +1,6 @@
 package com.egabi.usermanagement.controller;
 
 import com.egabi.usermanagement.model.BaseResponse;
-import com.egabi.usermanagement.model.User;
 import com.egabi.usermanagement.service.UserServices;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
@@ -10,8 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -23,11 +20,11 @@ public class UsersController {
 
     @GetMapping
     public ResponseEntity getAllUsers() {
-        return ResponseEntity.ok(new BaseResponse(true,null,userServices.getAllUsers()));
+        return ResponseEntity.ok(new BaseResponse(true, userServices.getAllUsers()));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity getUserById(@PathVariable Integer id) {
-        return ResponseEntity.ok(new BaseResponse(true,null,userServices.getUserById(id)));
+        return ResponseEntity.ok(new BaseResponse(true, userServices.getUserById(id)));
     }
 }

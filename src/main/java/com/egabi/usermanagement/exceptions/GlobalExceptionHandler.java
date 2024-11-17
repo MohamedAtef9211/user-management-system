@@ -20,4 +20,11 @@ public class GlobalExceptionHandler {
             .body(new BaseResponse(false,ex.getMessage(),null));
     }
 
+    @ExceptionHandler( ProductNotFoundException.class)
+    public ResponseEntity<BaseResponse> handleProductNotFoundException(ProductNotFoundException ex) {
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .body(new BaseResponse(false,ex.getMessage(),null));
+    }
+
 }
